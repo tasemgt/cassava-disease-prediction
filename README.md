@@ -1,5 +1,5 @@
-Computer Vision Solution for Cassava Crop Disease Detection Problem
-========
+Solving Large Scale Cassava Crop Disease Detection Problem with Deep Learning (Computer Vision) - [DataTalksClub Capstone Project]
+================================================================================================================================
 This project employs machine learning (Deep Learning) techniques for classifying & detecting illnesses in cassava crops for the purpose of better and improved agricultural profit.
 
 
@@ -102,54 +102,49 @@ The solution has the following subsections:
 
 
 Steps to Reproduce Project
-================
+=========================
 1. **Prepare Code & Environment**
    
    - Clone the project repo and navigate to the directory
    - Open in vscode for better coding management & experience
      
      ```
-     git clone https://github.com/tasemgt/passenger-booking-prediction.git
-     cd passenger-booking-prediction
+     git clone https://github.com/tasemgt/cassava-disease-prediction.git
+     cd cassava-disease-prediction
      ```
 2. **Install dependencies**
    - Run the command `uv sync` to install dependencies
-   - Navigate to the src directory `cd src`
 
-3. **Start FastAPI Server Locally**
-   - Inside the src folder, run the command `uvicorn predict:app --reload` to start the web service
-   - Navigate to `127.0.0.1:8000/docs` to access FlaskAPI's service to run inference testing
+3. **Testing (Inference) Model Locally**
+   - From the root directory, run the command `python test_model.py` to run the a test script testing a sample cassava leaf image
      
-4. **Start FastAPI via Docker**
-   - From the root folder, run `docker build -t customer-booking-api .` to build the docker image
-   - To start up the docker container, run `docker-compose up -d`
-   - Navigate to `127.0.0.1:9696/docs` to access FlaskAPI's service to run inference testing
-  
-5. **Making Predictions (Inference)**
-   - Use the following sample JSON customer data to test inference. You can tweak as you wish to see if customer completes booking or not.
+4. **Testing (Inference) Lambda Packaged Model via Docker**
+   - From the root folder, run `docker build -t cassava-onnx-lambda .` to build the docker image
+   - Then run `docker run --rm -p 9000:8080 cassava-onnx-lambda` to start running a container in --rm mode
+   - Then on a different terminal, run:
    ```
-     {
-        "num_passengers": 2,
-        "sales_channel": "Internet",
-        "trip_type": "RoundTrip",
-        "purchase_lead": 120,
-        "length_of_stay": 10,
-        "flight_hour": 14,
-        "flight_day": "Tue",
-        "route": "AKLDEL",
-        "booking_origin": "New Zealand",
-        "wants_extra_baggage": 1,
-        "wants_preferred_seat": 0,
-        "wants_in_flight_meals": 1,
-        "flight_duration": 5.52
-    }
+      curl -X POST \             
+     http://localhost:9000/2015-03-31/functions/function/invocations \
+     -H "Content-Type: application/json" \
+     -d '{
+           "url": "https://newscenter.lbl.gov/wp-content/uploads/Characteristic-yellowing-of-casssava-leaves-symptom-of-CBSD-infection.jpg"
+         }'
    ```
-   - You can try other routes like `AKLKUL`, `AKLKIX`, and countries like `Malaysia`, `Germany`, etc.
+   To test using the image url present. You can use yours as well to try.
   
+5. **Testing (Inference) Deployed version on AWS Lambda Environment using Lambda Function url**
+   - Make a POST http request using your preferred method to: `https://47ub54xazq3kgshw3al2tghuye0bsomz.lambda-url.eu-west-2.on.aws/` providing the following payload:
+     ```
+        payload = {
+             "url": "https://thebluefufu.com/wp-content/uploads/2022/04/Enjoy-Your-Life-1080-%C3%97-1080-piksel.png"
+         }
+     ```
+     Where "url" is the url link to the cassava image to be classified.
+   - To use the test script provided, simply run from the root directory: `python test_lambda_model.py`
 
-Contact
+
+
+Have fun
 =======
 Connect with me on LinkedIn ❤️ : [Michael Tase](https://www.linkedin.com/in/michael-tase-4151216a)
-
-
 
