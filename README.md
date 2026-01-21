@@ -48,6 +48,7 @@ The solution has the following subsections:
    - onnx (Open Neural Network Exchange) – Open format for representing machine learning models across different frameworks.
    - onnxruntime – High-performance inference engine for executing ONNX machine learning models.
    - onnxscript – Tool for authoring, inspecting, and transforming ONNX models using Python syntax.
+   - scikit-learn – Machine learning library providing efficient tools for classification, regression, clustering, preprocessing, and model evaluation.
    - pandas – Data analysis and manipulation library providing DataFrame and Series structures.
    - numpy – Core library for numerical computing with support for arrays, matrices, and mathematical operations.
    - requests – Simple and user-friendly HTTP library for making web requests.
@@ -151,5 +152,6 @@ Steps to Reproduce Project
 Have fun
 =======
 Connect with me on LinkedIn ❤️ : [Michael Tase](https://www.linkedin.com/in/michael-tase-4151216a)
+
 
 
