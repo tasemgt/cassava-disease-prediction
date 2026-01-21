@@ -38,7 +38,7 @@ The Solution
 An End-to-End machine learning model that classifies cassava plant images as healthy or unhealthy into the different classes of diseases as listed above.
 The solution has the following subsections:
 
-1. **Tech Stack**
+1. **Tech Stack** <br>
    1.1. *Libraries*
    - PyTorch - A python wrapper of a C/C++ library for machine learning and deep learning. It provides a lot of utilities and implementations for a variety of machine learning ideas such as neural networks, NLP, normalization layers, and others).
    - torchvision - A subset of the PyTorch ecosystem, with specific focus on images and computer vision providing datasets, pretrained models and more.
@@ -58,7 +58,7 @@ The solution has the following subsections:
    - AWS Lambda – Serverless compute service that runs code in response to events without managing servers.
    - uv – Ultra-fast Python package installer and dependency manager written in Rust, compatible with pip and virtual environments.
   
-2. **EDA (Exploratory Data Analysis)
+2. **EDA (Exploratory Data Analysis)** <br>
    EDA is the process of sifting through data with the goal of extracting insights. These insights allow a better understanding of the available data and what can be done with it.
    They can also be used for guided preparation of the dataset in the appropriate manner. Just like regular analysis, EDA begins with a set of __questions__ and/or __hypotheses__.
    The EDA process will then prove or disprove these hypotheses, and then help reveal other points of inquiry along the way.
@@ -68,12 +68,37 @@ The solution has the following subsections:
    - The images are generally large in size. This would imply that a lot of computation will take place.
    - The sizes of the images vary. This would require us to ensure that the images are of the same size.
    - The image classes are imbalanced. This might require the use of specialized metrics for evaluation, such as ROC AUC. Also, by leveraging the use pretrained models, We can try to bypass this issue of class imbalance. 
+   <br>
+   <img width="600" height="474" alt="Screenshot 2026-01-21 at 11 25 14" src="https://github.com/user-attachments/assets/c4e68699-9241-4989-a2ad-69eee5a6240e" />
+   <br>
+   **Fig:** *A snapshot of some classes and images present in the dataset*
 
-   
+3. **Data Modelling** <br>
+   The following is a highlighted overview of steps and items used in data preparation and modelling
+   - Loading pretrained model
+   - Reconfigure pretrained model.
+      + VGG-13
+      + Resnet-18
+   - Model weights were initialised.
+   - Instantiate training utilities like the _optimizer_.
+   - Wire up the training loop.
+   - Train the model using VGG-13 and Resnet-18 pre-trained models using finetuned and frozen weights for both respectively.
+   - Model is trained on a CUDA machine for improved efficiency in process.
+   - Hyperparameter tunning (Truning the learning rate, using Adam optimiser, and carrying out data augmentation to improve accuracy).
+  
+4. **Evaluation & Model Selection** <br>
+   After training, the Resnet-18 (fine-tuned) model proved to be the best model in terms of performance having much more higher accuracy and lower loss as training epochs increase offering better generalisation on test data.
+   <br>
+   <img width="962" height="412" alt="Screenshot 2026-01-21 at 11 28 46" src="https://github.com/user-attachments/assets/d3d40c4d-df9c-42a1-b369-14aa0ca6867e" />
+   <br>
+   **Fig:** *A snapshot of evaluated Resnet-18 fine-tuned model*
 
-
-
-
+5. **Model Deployment** <br>
+   The following are steps taken to deploy model:
+   - Prepare a Lambda Function to expose model for inference
+   - Package Lambad Function and scripts into a Docker Image
+   - Ship Image to AWS ECR
+   - Create a Lambda Function on AWS, connect to registered Image on ECR and expose inference function for externeal API access using Function URL
 
 
 Steps to Reproduce Project
@@ -125,5 +150,6 @@ Steps to Reproduce Project
 Contact
 =======
 Connect with me on LinkedIn ❤️ : [Michael Tase](https://www.linkedin.com/in/michael-tase-4151216a)
+
 
 
