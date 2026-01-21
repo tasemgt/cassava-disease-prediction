@@ -114,11 +114,15 @@ Steps to Reproduce Project
      ```
 2. **Install dependencies**
    - Run the command `uv sync` to install dependencies
+  
+3. **Training the Model**
+    - The trained Resnet-18 finetuned model is provided in this repo already in the `artefacts/models` folder.
+    - However, if you'd like to train the model from scratch, you can use the provide `train_save_model` notebooks or python file. The data sets can be downloaded [here!](https://drive.google.com/file/d/1mcOok_rAmWkmQUcl2rWDU7J5ripi7BOp/view?usp=sharing)
 
-3. **Testing (Inference) Model Locally**
+4. **Testing (Inference) Model Locally**
    - From the root directory, run the command `python test_model.py` to run the a test script testing a sample cassava leaf image
      
-4. **Testing (Inference) Lambda Packaged Model via Docker**
+5. **Testing (Inference) Lambda Packaged Model via Docker**
    - From the root folder, run `docker build -t cassava-onnx-lambda .` to build the docker image
    - Then run `docker run --rm -p 9000:8080 cassava-onnx-lambda` to start running a container in --rm mode
    - Then on a different terminal, run:
@@ -132,7 +136,7 @@ Steps to Reproduce Project
    ```
    To test using the image url present. You can use yours as well to try.
   
-5. **Testing (Inference) Deployed version on AWS Lambda Environment using Lambda Function url**
+6. **Testing (Inference) Deployed version on AWS Lambda Environment using Lambda Function url**
    - Make a POST http request using your preferred method to: `https://47ub54xazq3kgshw3al2tghuye0bsomz.lambda-url.eu-west-2.on.aws/` providing the following payload:
      ```
         payload = {
@@ -147,4 +151,5 @@ Steps to Reproduce Project
 Have fun
 =======
 Connect with me on LinkedIn ❤️ : [Michael Tase](https://www.linkedin.com/in/michael-tase-4151216a)
+
 
