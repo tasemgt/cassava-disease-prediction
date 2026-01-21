@@ -35,8 +35,41 @@ This project followed the CRISP-DM (Cross Industry Standard Process for Data Min
 
 The Solution
 ================
+An End-to-End machine learning model that classifies cassava plant images as healthy or unhealthy into the different classes of diseases as listed above.
+The solution has the following subsections:
 
+1. **Tech Stack**
+   1.1. *Libraries*
+   - PyTorch - A python wrapper of a C/C++ library for machine learning and deep learning. It provides a lot of utilities and implementations for a variety of machine learning ideas such as neural networks, NLP, normalization layers, and others).
+   - torchvision - A subset of the PyTorch ecosystem, with specific focus on images and computer vision providing datasets, pretrained models and more.
+   - Pillow/PIL (Python Image Libary) - A Python library desined for the purpose of image loading and manipulation.
+   - Matplotlib - A Python library for data visualization.
+   - imageio – Library for reading and writing a wide range of image and video formats.
+   - onnx (Open Neural Network Exchange) – Open format for representing machine learning models across different frameworks.
+   - onnxruntime – High-performance inference engine for executing ONNX machine learning models.
+   - onnxscript – Tool for authoring, inspecting, and transforming ONNX models using Python syntax.
+   - pandas – Data analysis and manipulation library providing DataFrame and Series structures.
+   - numpy – Core library for numerical computing with support for arrays, matrices, and mathematical operations.
+   - requests – Simple and user-friendly HTTP library for making web requests.
+  
+   1.2. *Tools & Environment*
+   - Docker – Platform for packaging, distributing, and running applications in isolated containers.
+   - AWS ECR (Elastic Container Registry) – Managed AWS service for storing, managing, and deploying Docker container images.
+   - AWS Lambda – Serverless compute service that runs code in response to events without managing servers.
+   - uv – Ultra-fast Python package installer and dependency manager written in Rust, compatible with pip and virtual environments.
+  
+2. **EDA (Exploratory Data Analysis)
+   EDA is the process of sifting through data with the goal of extracting insights. These insights allow a better understanding of the available data and what can be done with it.
+   They can also be used for guided preparation of the dataset in the appropriate manner. Just like regular analysis, EDA begins with a set of __questions__ and/or __hypotheses__.
+   The EDA process will then prove or disprove these hypotheses, and then help reveal other points of inquiry along the way.
 
+   After EDA, it was observed that there are:
+   - Indeed five categories of cassava images.
+   - The images are generally large in size. This would imply that a lot of computation will take place.
+   - The sizes of the images vary. This would require us to ensure that the images are of the same size.
+   - The image classes are imbalanced. This might require the use of specialized metrics for evaluation, such as ROC AUC. Also, by leveraging the use pretrained models, We can try to bypass this issue of class imbalance. 
+
+   
 
 
 
@@ -92,4 +125,5 @@ Steps to Reproduce Project
 Contact
 =======
 Connect with me on LinkedIn ❤️ : [Michael Tase](https://www.linkedin.com/in/michael-tase-4151216a)
+
 
