@@ -117,7 +117,7 @@ Steps to Reproduce Project
    - Run the command `uv sync` to install dependencies
   
 3. **Training the Model**
-    - The trained Resnet-18 finetuned model is provided in this repo already in the `artefacts/models` folder.
+    - The trained Resnet-18 finetuned model is provided in this repo already in the `artefacts/models` folder, containing the onnx version of the model as well as torch scripted and traced versions.
     - However, if you'd like to train the model from scratch, you can use the provide `train_save_model` notebooks or python file. The data sets can be downloaded [here!](https://drive.google.com/file/d/1mcOok_rAmWkmQUcl2rWDU7J5ripi7BOp/view?usp=sharing)
 
 4. **Testing (Inference) Model Locally**
