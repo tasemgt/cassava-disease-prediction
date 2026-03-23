@@ -1,4 +1,4 @@
-Solving Large Scale Cassava Crop Disease Detection Problem with Deep Learning (Computer Vision) - [DataTalksClub Capstone Project]
+Solving Large Scale Cassava Crop Disease Detection Problem with Deep Learning (Computer Vision)
 ================================================================================================================================
 This project employs machine learning (Deep Learning) techniques for classifying & detecting illnesses in cassava crops for the purpose of better and improved agricultural profit.
 
